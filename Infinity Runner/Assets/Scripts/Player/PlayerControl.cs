@@ -37,9 +37,22 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
 
-        updateAnimation();
+        UpdateAnimation();
 
-        if (OffPlayerPointDetected())
+        Move();
+        
+
+    }
+
+    void Move()
+    {
+        Velocity();
+        SimpleJump();
+    }
+
+    void Velocity()
+    {
+        if (IsBehindPlayerPoint())
         {
             myRigidbody.velocity = new Vector2(moveSpeed * speedMultiplier, myRigidbody.velocity.y);
         }
@@ -47,24 +60,25 @@ public class PlayerControl : MonoBehaviour
         {
             myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
         }
-        
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+    void SimpleJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (IsGrounded())
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
             }
         }
-
     }
 
-    bool OffPlayerPointDetected()
+    bool IsBehindPlayerPoint()
     {
         return playerPoint.position.x - transform.position.x > 0;
     }
 
-    void updateAnimation()
+    void UpdateAnimation()
     {
         float _actualVelocity = myRigidbody.velocity.x;
         myAnimator.SetFloat("Speed", _actualVelocity);

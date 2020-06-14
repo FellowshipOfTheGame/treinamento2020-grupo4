@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraObjectFollow : MonoBehaviour
+public class PointsToFollow : MonoBehaviour
 {
     public float moveSpeed;
     private Rigidbody2D myRigidbody;
