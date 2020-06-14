@@ -10,9 +10,13 @@ public class PlayerControl : MonoBehaviour
 
     public float moveSpeed;
     public float jumpForce;
- 
+
+    public Transform playerPoint;
+    public float speedMultiplier; // for when the player gets off the player point
+
     private Rigidbody2D myRigidbody;
     private Collider2D myCollider;
+
 
     public bool grounded;
     public LayerMask groundLayer;
@@ -35,9 +39,15 @@ public class PlayerControl : MonoBehaviour
 
         updateAnimation();
 
-  
+        if (OffPlayerPointDetected())
+        {
+            myRigidbody.velocity = new Vector2(moveSpeed * speedMultiplier, myRigidbody.velocity.y);
+        }
+        else
+        {
+            myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
+        }
         
-        myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
@@ -49,6 +59,11 @@ public class PlayerControl : MonoBehaviour
 
     }
 
+    bool OffPlayerPointDetected()
+    {
+        return playerPoint.position.x - transform.position.x > 0;
+    }
+
     void updateAnimation()
     {
         float _actualVelocity = myRigidbody.velocity.x;
@@ -58,8 +73,8 @@ public class PlayerControl : MonoBehaviour
 
     bool IsGrounded()
     {
-        float _extraHeightTest = 0.01f;
-        boxCastHit2D boxCastHit = Physics2D.BoxCast(myCollider.bounds.min, myCollider.bounds.size / 10, 0, Vector2.down, _extraHeightTest, groundLayer);
+        float _extraHeight = 0.5f;
+        RaycastHit2D boxCastHit = Physics2D.BoxCast(myCollider.bounds.min, myCollider.bounds.size / 10, 0, Vector2.down, _extraHeight, groundLayer);
 
         return boxCastHit.collider != null;
     }
