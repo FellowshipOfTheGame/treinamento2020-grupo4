@@ -1,18 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Diagnostics;
 using UnityEngine;
 
 
 public class PlayerControl : MonoBehaviour
 {
 
-    public float moveSpeed;
+    public float moveSpeed = 6;
+    public float speedMultiplier; // for when the player is behind player point
     public float jumpForce;
 
     public Transform playerPoint;
-    public float speedMultiplier; // for when the player gets off the player point
 
     private Rigidbody2D myRigidbody;
     private Collider2D myCollider;
@@ -36,12 +36,8 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         UpdateAnimation();
-
         Move();
-        
-
     }
 
     void Move()
@@ -54,12 +50,29 @@ public class PlayerControl : MonoBehaviour
     {
         if (IsBehindPlayerPoint())
         {
-            myRigidbody.velocity = new Vector2(moveSpeed * speedMultiplier, myRigidbody.velocity.y);
+            float _distanceToPlayerPoint = playerPoint.position.x - transform.position.x;
+            myRigidbody.velocity = new Vector2(GetNewVelocity(_distanceToPlayerPoint), myRigidbody.velocity.y);
         }
         else
         {
             myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
         }
+    }
+
+    private float GetNewVelocity(float _distanceToPlayerPoint)//return the velocity given the distance between player and player point.
+    {
+
+        float _maxDistance = playerPoint.position.x - GetLeftScreenLimit();//the value of the max distance that player can reach (he/she will die if touch the left side of screen)
+
+        return moveSpeed * ( (speedMultiplier -1) * (_distanceToPlayerPoint/_maxDistance) + 1); //linear function:   moveSpeed <= newVelocity <= moveSpeed * speedMultiplier
+    }
+
+    public float GetLeftScreenLimit()
+    {
+        //Generate world space point information for position and scale calculations
+        Vector3 _cameraPos = Camera.main.transform.position;
+        float _screenSize = Vector2.Distance(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)), Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0))) * 0.5f;
+        return _cameraPos.x - _screenSize;
     }
 
     void SimpleJump()
