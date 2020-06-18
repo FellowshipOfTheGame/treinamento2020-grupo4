@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,32 +17,41 @@ public class ScreenLimits : MonoBehaviour
         CreateScreenLimitsObjects();
         NameObjects();
         AddColliders();
+        AddScripts();
+        AddRigidBody();
         Initialize();
     }
 
+
     private void Initialize()
     {
-
         bottomCollider.parent = transform;
-
         leftCollider.parent = transform;
+    }
+
+    private void AddRigidBody()
+    {
+        bottomCollider.gameObject.AddComponent<Rigidbody2D>();
+        leftCollider.gameObject.AddComponent<Rigidbody2D>();
+    }
+
+    private void AddScripts()
+    {
+        bottomCollider.gameObject.AddComponent<MortalCollider>();
+        leftCollider.gameObject.AddComponent<MortalCollider>();
     }
 
     private void AddColliders()
     {
-
         //Add the colliders
         bottomCollider.gameObject.AddComponent<BoxCollider2D>();
         bottomCollider.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         leftCollider.gameObject.AddComponent<BoxCollider2D>();
         leftCollider.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
-
-
     }
 
     private void NameObjects()
     {
-
         //Name our objects 
         bottomCollider.name = "BottomCollider";
         leftCollider.name = "LeftCollider";
@@ -56,7 +66,6 @@ public class ScreenLimits : MonoBehaviour
 
     private void LateUpdate()
     {
-
         //Generate world space point information for position and scale calculations
         cameraPos = Camera.main.transform.position;
         screenSize.x = Vector2.Distance(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)), Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0))) * 0.5f;
