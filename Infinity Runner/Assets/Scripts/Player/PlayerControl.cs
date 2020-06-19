@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
 
     public float moveSpeed = 6;
     public float speedMultiplier; // for when the player is behind player point
+    public float constSpeed = 0.5f;
     public float jumpForce;
 
     public Transform playerPoint;
@@ -52,6 +53,7 @@ public class PlayerControl : MonoBehaviour
         {
             float _distanceToPlayerPoint = playerPoint.position.x - transform.position.x;
             myRigidbody.velocity = new Vector2(GetNewVelocity(_distanceToPlayerPoint), myRigidbody.velocity.y);
+            Debug.Log(myRigidbody.velocity.x);
         }
         else
         {
