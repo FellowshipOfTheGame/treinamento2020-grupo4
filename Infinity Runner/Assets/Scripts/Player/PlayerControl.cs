@@ -83,8 +83,9 @@ public class PlayerControl : MonoBehaviour
         {
             if (IsGrounded())
             {
-                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
+              myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
             }
+            //myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
         }
     }
 
