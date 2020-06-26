@@ -12,15 +12,28 @@ public class GameManager : MonoBehaviour
     public static event Action OnPause;
     public static event Action OnResume;
     public static event Action OnLost;
+    public static event Action OnWon;
 
     private void Awake()
     {
         MortalCollider.PlayerDeath += PlayerLost;
+        FinishPoint.PlayerWon += PlayerWon;
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
     }
 
     private void OnDestroy()
     {
         MortalCollider.PlayerDeath -= PlayerLost;
+        FinishPoint.PlayerWon -= PlayerWon;
     }
 
     private void PlayerLost()
@@ -30,13 +43,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Perdeuu");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void PlayerWon()
     {
-        if(Input.GetKeyDown(KeyCode.Escape)){
-            Pause();
-        }
+        Time.timeScale = 0f;
+        OnWon();
+        Debug.Log("Ganhouu");
     }
+
 
     public void Pause()
     {
