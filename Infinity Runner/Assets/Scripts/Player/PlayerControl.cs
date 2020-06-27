@@ -9,7 +9,10 @@ public class PlayerControl : MonoBehaviour
 {
 
     public float moveSpeed = 6;
+    public float defaultSpeed = 6;
+    public float defaultJump = 15;
     public float speedMultiplier; // for when the player is behind player point
+    public float constSpeed = 0.5f;
     public float jumpForce;
 
     public Transform playerPoint;
@@ -38,12 +41,12 @@ public class PlayerControl : MonoBehaviour
     {
         UpdateAnimation();
         Move();
+        Debug.Log(myRigidbody.velocity.x);
     }
 
     void Move()
     {
         Velocity();
-        SimpleJump();
     }
 
     void Velocity()
@@ -52,6 +55,7 @@ public class PlayerControl : MonoBehaviour
         {
             float _distanceToPlayerPoint = playerPoint.position.x - transform.position.x;
             myRigidbody.velocity = new Vector2(GetNewVelocity(_distanceToPlayerPoint), myRigidbody.velocity.y);
+            //Debug.Log(myRigidbody.velocity.x);
         }
         else
         {
@@ -75,17 +79,6 @@ public class PlayerControl : MonoBehaviour
         return _cameraPos.x - _screenSize;
     }
 
-    void SimpleJump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (IsGrounded())
-            {
-                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, jumpForce);
-            }
-        }
-    }
-
     bool IsBehindPlayerPoint()
     {
         return playerPoint.position.x - transform.position.x > 0;
@@ -98,7 +91,7 @@ public class PlayerControl : MonoBehaviour
         myAnimator.SetBool("Grounded", IsGrounded());
     }
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         float _extraHeight = 0.5f;
         RaycastHit2D boxCastHit = Physics2D.BoxCast(myCollider.bounds.min, myCollider.bounds.size / 10, 0, Vector2.down, _extraHeight, groundLayer);

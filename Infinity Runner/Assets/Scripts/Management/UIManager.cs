@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject lostScreen;
     public GameObject pauseScreen;
+    public GameObject wonScreen;
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
         GameManager.OnPause += PauseGame;
         GameManager.OnResume += ResumeGame;
         GameManager.OnLost += LostGame;
+        GameManager.OnWon += WonGame;
     }
 
     private void UnregisterEvents()
@@ -29,6 +31,7 @@ public class UIManager : MonoBehaviour
         GameManager.OnPause -= PauseGame;
         GameManager.OnResume -= ResumeGame;
         GameManager.OnLost -= LostGame;
+        GameManager.OnWon -= WonGame;
     }
 
 
@@ -47,4 +50,8 @@ public class UIManager : MonoBehaviour
         lostScreen.SetActive(true);
     }
 
+    private void WonGame()
+    {
+        wonScreen.SetActive(true);
+    }
 }
