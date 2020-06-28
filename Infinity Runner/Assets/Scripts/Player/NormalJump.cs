@@ -28,7 +28,7 @@ public class NormalJump : MonoBehaviour
             {
                 playerRb.velocity = new Vector2(playerRb.velocity.x, player.jumpForce);
             }
-            //playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
+            
         }
 
         bool _falling = playerRb.velocity.y < 0;
