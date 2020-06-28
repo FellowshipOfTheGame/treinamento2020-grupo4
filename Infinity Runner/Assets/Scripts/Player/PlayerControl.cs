@@ -87,8 +87,8 @@ public class PlayerControl : MonoBehaviour
     void UpdateAnimation()
     {
         float _actualVelocity = myRigidbody.velocity.x;
-        myAnimator.SetFloat("Speed", _actualVelocity);
-        myAnimator.SetBool("Grounded", IsGrounded());
+        myAnimator.SetFloat("Velocity", _actualVelocity);
+        myAnimator.SetBool("IsJumping", !IsGrounded());
     }
 
     public bool IsGrounded()

@@ -11,15 +11,14 @@ public class MortalCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.CompareTag("Player"))
         {
-            if (collider.CompareTag("Player"))
+            if (PlayerDeath != null)
             {
-                if (PlayerDeath != null)
-                {
-                    PlayerDeath();
-                }
+                PlayerDeath();
             }
         }
+        
     }
 
 }

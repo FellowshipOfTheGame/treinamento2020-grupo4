@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 6e4b376323f5dea41937ee68e0db7531
+guid: 9d4f99ed5e61cde4c8b5e72b7985a471
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7673914149250507233
-    second: personagem-parado_0
+      213: 4120011959888742894
+    second: aranha_0
   - first:
-      213: -1105716002950777968
-    second: personagem-parado_1
+      213: -4075557640844735562
+    second: aranha_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -93,22 +93,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: personagem-parado_0
+      name: aranha_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 55
-        height: 100
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 12
+        y: 10
+        width: 70
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1e54194db7c08590800000000000000
-      internalID: -7673914149250507233
+      spriteID: ee9878b7c093d2930800000000000000
+      internalID: 4120011959888742894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aranha_1
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 10
+        width: 61
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bb02db3be5b077c0800000000000000
+      internalID: -4075557640844735562
       vertices: []
       indices: 
       edges: []

@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         MortalCollider.PlayerDeath += PlayerLost;
+        Enemies.PlayerDeath += PlayerLost;
         FinishPoint.PlayerWon += PlayerWon;
+        Time.timeScale = 1;
     }
 
 
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         MortalCollider.PlayerDeath -= PlayerLost;
         FinishPoint.PlayerWon -= PlayerWon;
+        Enemies.PlayerDeath -= PlayerLost;
     }
 
     private void PlayerLost()
@@ -71,6 +74,12 @@ public class GameManager : MonoBehaviour
     {
         Scene _scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(_scene.name);
-        Time.timeScale = 1f;
+    }
+
+    public void BackToMenu()
+    {
+        int buildIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(buildIndex - 1);
+        
     }
 }

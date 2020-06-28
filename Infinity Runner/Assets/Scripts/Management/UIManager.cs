@@ -20,27 +20,27 @@ public class UIManager : MonoBehaviour
 
     private void RegisterEvents()
     {
-        GameManager.OnPause += PauseGame;
-        GameManager.OnResume += ResumeGame;
+        GameManager.OnPause += PauseScreenOn;
+        GameManager.OnResume += PauseScreenOff;
         GameManager.OnLost += LostGameScreenOn;
         GameManager.OnWon += WonGameScreenOn;
     }
 
     private void UnregisterEvents()
     {
-        GameManager.OnPause -= PauseGame;
-        GameManager.OnResume -= ResumeGame;
+        GameManager.OnPause -= PauseScreenOn;
+        GameManager.OnResume -= PauseScreenOff;
         GameManager.OnLost -= LostGameScreenOn;
         GameManager.OnWon -= WonGameScreenOn;
     }
 
 
-    private void ResumeGame()
+    private void PauseScreenOff()
     {
         pauseScreen.SetActive(false);
     }
 
-    private void PauseGame()
+    private void PauseScreenOn()
     {
         pauseScreen.SetActive(true);
     }
@@ -54,4 +54,5 @@ public class UIManager : MonoBehaviour
     {
         wonScreen.SetActive(true);
     }
+
 }
