@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public static event Action OnLost;
     public static event Action OnWon;
 
+    public AudioSource soundtrack;
+
     private void Awake()
     {
         MortalCollider.PlayerDeath += PlayerLost;
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
     private void PlayerLost()
     {
         Time.timeScale = 0f;
+        soundtrack.Pause();
         OnLost();
         Debug.Log("Perdeuu");
     }
@@ -49,6 +52,7 @@ public class GameManager : MonoBehaviour
     private void PlayerWon()
     {
         Time.timeScale = 0f;
+        soundtrack.Pause();
         OnWon();
         Debug.Log("Ganhouu");
     }
@@ -58,12 +62,14 @@ public class GameManager : MonoBehaviour
     {
         if (isPaused)
         {
+            soundtrack.Play();
             isPaused = false;
             Time.timeScale = 1f;
             OnResume();
         }
         else
         {
+            soundtrack.Pause();
             isPaused = true;
             Time.timeScale = 0f;
             OnPause();
@@ -82,4 +88,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(buildIndex - 1);
         
     }
+
+    
 }
