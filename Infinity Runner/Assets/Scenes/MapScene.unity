@@ -1800,6 +1800,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &562599031 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5626502252525741948, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &592425470 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2704910066288705974, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &630710015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2172,6 +2184,7 @@ GameObject:
   - component: {fileID: 766545470}
   - component: {fileID: 766545469}
   - component: {fileID: 766545468}
+  - component: {fileID: 766545473}
   m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
@@ -27002,6 +27015,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &766545473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766545466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee9146e562d99246a38a2e7b23af945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &827910289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27122,6 +27147,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9d8ee0931a2c342bc32dfb35baf5fb, type: 3}
+--- !u!82 &886336759 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6080559935336313939, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &902438059
 GameObject:
   m_ObjectHideFlags: 0
@@ -27480,6 +27511,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &991199584 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5868076211243094223, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1023897432 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4605495164323130634, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1050366120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27750,6 +27793,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eaa3a5ad1e86c54faca75aa21327695, type: 3}
+--- !u!82 &1236233821 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2589129492273347501, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1255722154
 GameObject:
   m_ObjectHideFlags: 0
@@ -28333,6 +28382,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8d0834ad451f4f4294db4d5a31ce189, type: 3}
+--- !u!82 &1723082387 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8322614184259999497, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1778270586
 GameObject:
   m_ObjectHideFlags: 0
@@ -28512,6 +28567,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &1788196408 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6462335107883458545, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1929380809
 GameObject:
   m_ObjectHideFlags: 0
@@ -29049,6 +29110,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &2058384820 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6308185327754008510, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7131261797842925587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29091,6 +29158,11 @@ PrefabInstance:
       propertyPath: defaultJump
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 7131261796903236056, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+        type: 3}
+      propertyPath: sfxManager
+      value: 
+      objectReference: {fileID: 7131261797842925589}
     - target: {fileID: 7131261796903236057, guid: 21e95007355c1ec4d91d35aa1968cd3d,
         type: 3}
       propertyPath: m_Enabled
@@ -29171,5 +29243,37 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -44.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8167991938316862503, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21e95007355c1ec4d91d35aa1968cd3d, type: 3}
+--- !u!1 &7131261797842925588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4462578870618721479, guid: 21e95007355c1ec4d91d35aa1968cd3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7131261797842925587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7131261797842925589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131261797842925588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f9b541184589b41ae6b8557077c9fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breathing: {fileID: 562599031}
+  runningCloud: {fileID: 991199584}
+  runningGround: {fileID: 886336759}
+  breakingBranch1: {fileID: 1788196408}
+  breakingBranch2: {fileID: 1723082387}
+  breakingBranch3: {fileID: 1236233821}
+  fallingGround: {fileID: 2058384820}
+  fallingRiver: {fileID: 1023897432}
+  fallingCloud: {fileID: 592425470}

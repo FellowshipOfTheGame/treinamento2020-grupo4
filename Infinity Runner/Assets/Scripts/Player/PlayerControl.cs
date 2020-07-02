@@ -19,9 +19,11 @@ public class PlayerControl : MonoBehaviour
 
     private Rigidbody2D myRigidbody;
     private Collider2D myCollider;
+    public SFXManager sfxManager;
 
 
     public bool grounded;
+    private bool lastStateGrounded;
     public LayerMask groundLayer;
 
     private Animator myAnimator;
@@ -46,6 +48,11 @@ public class PlayerControl : MonoBehaviour
 
     void Move()
     {
+        if(myRigidbody.velocity.x > 0)
+        {
+            sfxManager.PlayerRunning();
+        }
+
         Velocity();
     }
 
@@ -93,9 +100,17 @@ public class PlayerControl : MonoBehaviour
 
     public bool IsGrounded()
     {
+       
         float _extraHeight = 0.5f;
         RaycastHit2D boxCastHit = Physics2D.BoxCast(myCollider.bounds.min, myCollider.bounds.size / 10, 0, Vector2.down, _extraHeight, groundLayer);
 
-        return boxCastHit.collider != null;
+        bool _grounded = boxCastHit.collider != null;
+
+        if(lastStateGrounded == false && _grounded == true)//if the player fell
+        {
+            sfxManager.PlayerFell();
+        }
+
+        return lastStateGrounded = _grounded;
     }
 }
