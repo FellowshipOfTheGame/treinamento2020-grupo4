@@ -18,7 +18,7 @@ public class Ground : MonoBehaviour
 
         }else if (groundSound.isPlaying)
         {
-            groundSound.isPlaying
+            //groundSound.isPlaying
         }
 
 
