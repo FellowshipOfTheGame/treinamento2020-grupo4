@@ -14,6 +14,7 @@ public class River : MonoBehaviour
         {
             deathSound.Play();
             PlayerDeath();
+            Debug.Log("Dei play");
         }
     }
 }

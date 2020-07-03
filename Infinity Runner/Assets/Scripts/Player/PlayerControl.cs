@@ -48,10 +48,6 @@ public class PlayerControl : MonoBehaviour
 
     void Move()
     {
-        if(myRigidbody.velocity.x > 0)
-        {
-            sfxManager.PlayerRunning();
-        }
 
         Velocity();
     }
@@ -105,11 +101,6 @@ public class PlayerControl : MonoBehaviour
         RaycastHit2D boxCastHit = Physics2D.BoxCast(myCollider.bounds.min, myCollider.bounds.size / 10, 0, Vector2.down, _extraHeight, groundLayer);
 
         bool _grounded = boxCastHit.collider != null;
-
-        if(lastStateGrounded == false && _grounded == true)//if the player fell
-        {
-            sfxManager.PlayerFell();
-        }
 
         return lastStateGrounded = _grounded;
     }

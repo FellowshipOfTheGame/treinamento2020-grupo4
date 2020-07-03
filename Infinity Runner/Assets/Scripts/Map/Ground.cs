@@ -12,14 +12,16 @@ public class Ground : MonoBehaviour
     // Start is called before the first frame update
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !groundSound.isPlaying)
         {
-            if (!groundSound.isPlaying)
-            {
-                groundSound.Play();
+            groundSound.Play();
 
-                
-            }
+        }else if (groundSound.isPlaying)
+        {
+            groundSound.isPlaying
         }
+
+
+
     }
 }
