@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     {
         MortalCollider.PlayerDeath += PlayerLost;
         Enemies.PlayerDeath += PlayerLost;
+        River.PlayerDeath += PlayerLost;
         FinishPoint.PlayerWon += PlayerWon;
         Time.timeScale = 1;
     }
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         MortalCollider.PlayerDeath -= PlayerLost;
         FinishPoint.PlayerWon -= PlayerWon;
         Enemies.PlayerDeath -= PlayerLost;
+        River.PlayerDeath -= PlayerLost;
     }
 
     private void PlayerLost()
