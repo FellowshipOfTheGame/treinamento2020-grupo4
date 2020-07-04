@@ -43,7 +43,7 @@ public class PlayerControl : MonoBehaviour
     {
         UpdateAnimation();
         Move();
-        Debug.Log(myRigidbody.velocity.x);
+        //Debug.Log(myRigidbody.velocity.x);
     }
 
     void Move()

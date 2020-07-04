@@ -12,9 +12,10 @@ public class River : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            
             deathSound.Play();
             PlayerDeath();
-            Debug.Log("Dei play");
+         
         }
     }
 }
