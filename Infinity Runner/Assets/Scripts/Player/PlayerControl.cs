@@ -8,9 +8,10 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
 
-    public float moveSpeed = 6;
+    private float moveSpeed;
     public float defaultSpeed = 6;
     public float defaultJump = 15;
+    public float defaultGravity = 5;
     public float speedMultiplier; // for when the player is behind player point
     public float constSpeed = 0.5f;
     public float jumpForce;
@@ -19,7 +20,6 @@ public class PlayerControl : MonoBehaviour
 
     private Rigidbody2D myRigidbody;
     private Collider2D myCollider;
-    public AudioSource breathing;
 
 
     public bool grounded;
@@ -38,6 +38,10 @@ public class PlayerControl : MonoBehaviour
 
         myAnimator = GetComponent<Animator>();
 
+        myRigidbody.gravityScale = defaultGravity;
+        moveSpeed = defaultSpeed;
+        jumpForce = defaultJump;
+
     }
 
     // Update is called once per frame
@@ -45,27 +49,13 @@ public class PlayerControl : MonoBehaviour
     {
         UpdateAnimation();
         Move();
-        SoundEffects();
+       
         //Debug.Log(myRigidbody.velocity.x);
     }
 
     void Move()
     {
         Velocity();
-    }
-
-    private void SoundEffects()
-    {
-        //jump breathing sound
-        if (!IsGrounded())
-        {
-            onAir = true;
-        }
-        else if (onAir && IsGrounded())
-        {
-            onAir = false;
-            breathing.Play();
-        }
     }
 
     void Velocity()
@@ -118,5 +108,10 @@ public class PlayerControl : MonoBehaviour
         RaycastHit2D boxCastHit = Physics2D.BoxCast(myCollider.bounds.min, myCollider.bounds.size / 10, 0, Vector2.down, _extraHeight, groundLayer);
 
         return boxCastHit.collider != null;
+    }
+
+    public Rigidbody2D getRigidBody()
+    {
+        return myRigidbody;
     }
 }

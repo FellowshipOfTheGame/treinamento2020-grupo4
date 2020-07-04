@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour
 
     public AudioSource soundtrack;
     public GameObject soundEffects;
+    public AudioSource playerDeath;
 
     private void Awake()
     {
         MortalCollider.PlayerDeath += PlayerLost;
         Enemies.PlayerDeath += PlayerLost;
+        Enemies.PlayerDeath += DeathSound;
         River.PlayerDeath += PlayerLost;
         FinishPoint.PlayerWon += PlayerWon;
         Time.timeScale = 1;
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
         MortalCollider.PlayerDeath -= PlayerLost;
         FinishPoint.PlayerWon -= PlayerWon;
         Enemies.PlayerDeath -= PlayerLost;
+        Enemies.PlayerDeath -= DeathSound;
         River.PlayerDeath -= PlayerLost;
     }
 
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         soundtrack.Pause();
+        soundEffects.SetActive(false);
         OnLost();
         Debug.Log("Perdeuu");
     }
@@ -87,6 +91,12 @@ public class GameManager : MonoBehaviour
         Scene _scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(_scene.name);
     }
+
+    public void DeathSound()
+    {
+        playerDeath.Play();
+    }
+
 
     public void BackToMenu()
     {

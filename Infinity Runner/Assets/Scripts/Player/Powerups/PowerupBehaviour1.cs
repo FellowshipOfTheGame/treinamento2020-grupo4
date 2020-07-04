@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerupBehaviour : MonoBehaviour
+public class PowerupBehaviour1 : MonoBehaviour
 {
     
     public PowerupController controller;
@@ -16,7 +16,7 @@ public class PowerupBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-  
+        
             ActivatePowerup();
             gameObject.SetActive(false);
         }

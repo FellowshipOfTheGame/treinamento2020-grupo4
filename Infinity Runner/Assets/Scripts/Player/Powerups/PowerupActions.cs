@@ -9,12 +9,14 @@ public class PowerupActions : MonoBehaviour
 
     public void SuperJumpStartAction()
     {
-        playerController.jumpForce *= 2;
+        playerController.jumpForce *= 1.08f;
+        playerController.getRigidBody().gravityScale = 3.1f;
     }
 
     public void SuperJumpEndAction()
     {
         playerController.jumpForce = playerController.defaultJump;
+        playerController.getRigidBody().gravityScale = playerController.defaultGravity;
     }
 
     public void FlyingTapStartAction()

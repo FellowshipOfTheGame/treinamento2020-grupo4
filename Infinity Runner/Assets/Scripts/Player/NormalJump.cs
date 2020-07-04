@@ -7,6 +7,7 @@ public class NormalJump : MonoBehaviour
 
     public PlayerControl player;
     public Rigidbody2D playerRb;
+    public AudioSource jumpSound;
     public float fallMultiplier = 5f;
     public float smallJumpMultiplier = 10f;
 
@@ -21,18 +22,19 @@ public class NormalJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Space))
+       
+        if (Input.GetButtonDown("Up"))
         {
             if (player.IsGrounded())
             {
                 playerRb.velocity = new Vector2(playerRb.velocity.x, player.jumpForce);
+                jumpSound.Play();
             }
             
         }
 
         bool _falling = playerRb.velocity.y < 0;
-        bool _jumping = Input.GetButton("Jump");
+        bool _jumping = Input.GetButton("Up");
 
         if (_falling)//faster fall
         {
