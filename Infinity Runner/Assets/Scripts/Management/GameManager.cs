@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public static event Action OnWon;
 
     public AudioSource soundtrack;
+    public GameObject soundEffects;
 
     private void Awake()
     {
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         soundtrack.Pause();
+        soundEffects.SetActive(false);
         OnWon();
         Debug.Log("Ganhouu");
     }
@@ -67,6 +69,7 @@ public class GameManager : MonoBehaviour
             soundtrack.Play();
             isPaused = false;
             Time.timeScale = 1f;
+            soundEffects.SetActive(true);
             OnResume();
         }
         else
@@ -74,6 +77,7 @@ public class GameManager : MonoBehaviour
             soundtrack.Pause();
             isPaused = true;
             Time.timeScale = 0f;
+            soundEffects.SetActive(false);
             OnPause();
         }
     }

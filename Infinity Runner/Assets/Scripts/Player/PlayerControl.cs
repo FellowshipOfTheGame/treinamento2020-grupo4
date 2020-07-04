@@ -19,14 +19,15 @@ public class PlayerControl : MonoBehaviour
 
     private Rigidbody2D myRigidbody;
     private Collider2D myCollider;
-    public SFXManager sfxManager;
+    public AudioSource breathing;
 
 
     public bool grounded;
-    private bool lastStateGrounded;
+    public bool onAir;
     public LayerMask groundLayer;
 
     private Animator myAnimator;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class PlayerControl : MonoBehaviour
         myCollider = GetComponent<Collider2D>();
 
         myAnimator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -43,13 +45,27 @@ public class PlayerControl : MonoBehaviour
     {
         UpdateAnimation();
         Move();
+        SoundEffects();
         //Debug.Log(myRigidbody.velocity.x);
     }
 
     void Move()
     {
-
         Velocity();
+    }
+
+    private void SoundEffects()
+    {
+        //jump breathing sound
+        if (!IsGrounded())
+        {
+            onAir = true;
+        }
+        else if (onAir && IsGrounded())
+        {
+            onAir = false;
+            breathing.Play();
+        }
     }
 
     void Velocity()
@@ -58,7 +74,7 @@ public class PlayerControl : MonoBehaviour
         {
             float _distanceToPlayerPoint = playerPoint.position.x - transform.position.x;
             myRigidbody.velocity = new Vector2(GetNewVelocity(_distanceToPlayerPoint), myRigidbody.velocity.y);
-            //Debug.Log(myRigidbody.velocity.x);
+            
         }
         else
         {
@@ -98,10 +114,9 @@ public class PlayerControl : MonoBehaviour
     {
        
         float _extraHeight = 0.5f;
+        
         RaycastHit2D boxCastHit = Physics2D.BoxCast(myCollider.bounds.min, myCollider.bounds.size / 10, 0, Vector2.down, _extraHeight, groundLayer);
 
-        bool _grounded = boxCastHit.collider != null;
-
-        return lastStateGrounded = _grounded;
+        return boxCastHit.collider != null;
     }
 }

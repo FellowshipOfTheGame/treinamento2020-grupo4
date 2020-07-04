@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ground : MonoBehaviour
 {
     public AudioSource groundSound;
+    public AudioSource fellGroundSound;
     public AudioSource variation1;
     public AudioSource variation2;
     public AudioSource variation3;
@@ -15,13 +16,18 @@ public class Ground : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && !groundSound.isPlaying)
         {
             groundSound.Play();
-
-        }else if (groundSound.isPlaying)
-        {
-            //groundSound.isPlaying
+            fellGroundSound.Play();
         }
 
+    }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && groundSound.isPlaying)
+        {
+            groundSound.Pause();
+
+        }
 
     }
 }

@@ -17,9 +17,9 @@ public class ScrollingScript : MonoBehaviour {
     private void Update()
     {
         float _temp = (cam.transform.position.x * (1 - parallaxEffect));
-        float dist = (cam.transform.position.x * parallaxEffect);
+        float _dist = (cam.transform.position.x * parallaxEffect);
 
-        transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
+        transform.position = new Vector3(startpos + _dist, transform.position.y, transform.position.z);
 
         if (_temp > startpos + length) startpos += length;
         else if (_temp < startpos - length) startpos -= length;
