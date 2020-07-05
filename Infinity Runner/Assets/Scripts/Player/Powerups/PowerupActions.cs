@@ -7,10 +7,14 @@ public class PowerupActions : MonoBehaviour
     [SerializeField]
     public PlayerControl playerController;
 
+    public AudioSource superJumpSound;
+    public AudioSource flySound;
+
     public void SuperJumpStartAction()
     {
-        playerController.jumpForce *= 1.08f;
-        playerController.getRigidBody().gravityScale = 3.1f;
+        playerController.jumpForce *= 0.75f;
+        playerController.getRigidBody().gravityScale = 1.9f;
+        superJumpSound.Play();
     }
 
     public void SuperJumpEndAction()
@@ -21,6 +25,7 @@ public class PowerupActions : MonoBehaviour
 
     public void FlyingTapStartAction()
     {      
+        
         playerController.gameObject.AddComponent<FlyingTapPower>();
     }
 
@@ -41,6 +46,7 @@ public class PowerupActions : MonoBehaviour
 
     public void FlyingControlledStartAction()
     {
+        flySound.Play();
         playerController.gameObject.AddComponent<FlyingControlledPower>();
     }
 

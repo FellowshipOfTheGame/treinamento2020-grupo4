@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: 4d0fbf7001d7fdd4596f02efd59bd556
+guid: d13cb852c95c797458ec667e9ce61167
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2353571312451627304
-    second: Book_0
+      213: -5357712883640448449
+    second: callouts_white_0
+  - first:
+      213: -7649631742944372965
+    second: callouts_white_1
+  - first:
+      213: -4247924520231824114
+    second: callouts_white_2
+  - first:
+      213: 7251667527305194248
+    second: callouts_white_3
+  - first:
+      213: 7472249978329469393
+    second: callouts_white_4
+  - first:
+      213: -6068951914478959272
+    second: callouts_white_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -48,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Book_0
+      name: callouts_white_1
       rect:
         serializedVersion: 2
-        x: 8
-        y: 16
-        width: 485
-        height: 390
+        x: 2
+        y: 96
+        width: 12
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +131,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 829aa3093a099a020800000000000000
-      internalID: 2353571312451627304
+      spriteID: b179f33957c07d590800000000000000
+      internalID: -7649631742944372965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: callouts_white_2
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 96
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0519e2c7275c05c0800000000000000
+      internalID: -4247924520231824114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: callouts_white_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 80
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d19f3ff3c3c2b760800000000000000
+      internalID: 7472249978329469393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: callouts_white_5
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 80
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8550e827360c6cba0800000000000000
+      internalID: -6068951914478959272
       vertices: []
       indices: 
       edges: []

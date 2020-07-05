@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public static event Action OnLost;
     public static event Action OnWon;
 
+    public bool musicActive = true;
+    public bool soundEnabled = true;
+
     public AudioSource soundtrack;
     public GameObject soundEffects;
     public AudioSource playerDeath;
@@ -73,7 +76,8 @@ public class GameManager : MonoBehaviour
             soundtrack.Play();
             isPaused = false;
             Time.timeScale = 1f;
-            soundEffects.SetActive(true);
+            if(soundEnabled)
+                soundEffects.SetActive(true);
             OnResume();
         }
         else

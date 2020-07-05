@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4d0fbf7001d7fdd4596f02efd59bd556
+guid: c5dd6c7029f36df4fa268053b9a40042
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2353571312451627304
-    second: Book_0
+      213: -4497964156448795417
+    second: ganhou_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Book_0
+      name: ganhou_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 16
-        width: 485
-        height: 390
+        x: 2
+        y: 2
+        width: 75
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +116,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 829aa3093a099a020800000000000000
-      internalID: 2353571312451627304
+      spriteID: 7e41e625e650491c0800000000000000
+      internalID: -4497964156448795417
       vertices: []
       indices: 
       edges: []
