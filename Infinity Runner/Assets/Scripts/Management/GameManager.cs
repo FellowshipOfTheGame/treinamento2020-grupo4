@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject soundEffects;
     public AudioSource playerDeath;
 
+    private bool gameplayIsActive = true;
+
     private void Awake()
     {
         MortalCollider.PlayerDeath += PlayerLost;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     private void PlayerLost()
     {
+        gameplayIsActive = false;
         Time.timeScale = 0f;
         soundtrack.Pause();
         soundEffects.SetActive(false);
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
 
     private void PlayerWon()
     {
+        gameplayIsActive = false;
         Time.timeScale = 0f;
         soundtrack.Pause();
         soundEffects.SetActive(false);
@@ -71,6 +75,8 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        if (!gameplayIsActive)
+            return;
         if (isPaused)
         {
             soundtrack.Play();
